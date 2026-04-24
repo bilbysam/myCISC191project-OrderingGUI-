@@ -33,6 +33,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 
 /**
  * OrderingInterface is-a JFrame and acts as the View of the GUI
@@ -55,23 +56,18 @@ public class OrderingInterface extends JFrame
 		//creates the panel for items buttons to be put in
 		JPanel itemMenuPanel = new JPanel();
 		
-		
-//		//sets size of the panel to bigger than the screen?????????????
-//		itemMenuPanel.setSize(new Dimension(700, 1000));
-		
+		//makes the itemMenuPanel scrollable
 		JScrollPane itemMenuScrollPane  = new JScrollPane(itemMenuPanel);
-		//trying to set up a scrollbar but should be in its own panel?
-//		JScrollBar scrollBar = new JScrollBar();
-//		scrollBar.setBounds(50, 300, 10, 10);
-//		itemMenuPanel.add(scrollBar);
 		
+		//sets size of the panel to greater than the window frame
+		itemMenuPanel.setPreferredSize(new Dimension(500,1000));
 		
 		itemMenuPanel.setBackground(Color.green);
 		//controls row and column order in regard to other components
 		baseConstraints.gridx = 0;
 		baseConstraints.gridy = 0;
 		//fills or extends space of component
-		baseConstraints.weightx = 0.1;
+		baseConstraints.weightx = 0.2;
 		baseConstraints.weighty = 0.1;
 		baseConstraints.fill = GridBagConstraints.BOTH;
 		this.add(itemMenuScrollPane, baseConstraints);
@@ -81,11 +77,11 @@ public class OrderingInterface extends JFrame
 		
 		
 		
-		
-		
-		
 		//creates panel list of items currently being ordered
 		JPanel orderPanel = new JPanel();
+		
+		//sets the size of the panel to fit the rest of the frame
+		orderPanel.setPreferredSize(new Dimension(400, 250));
 		
 		//color for helping visualize space taken up
 		orderPanel.setBackground(Color.blue);
@@ -103,17 +99,49 @@ public class OrderingInterface extends JFrame
 		baseConstraints.fill = GridBagConstraints.BOTH;
 		this.add(orderPanel, baseConstraints);
 		
-		orderPanel.setLayout(new GridLayout(3, 0));
-		
 		
 		//test adding buttons to the right Panel
-		for (int buttonCount = 0; buttonCount < 20; buttonCount++) 
+		for (int buttonCount = 0; buttonCount < 30; buttonCount++) 
 		{
+			JPanel gridPanel = new JPanel();
+			gridPanel.setLayout(new GridLayout(0,4));
+			
 			JButton button = new JButton("footNameOrImage");
 			button.setPreferredSize(new Dimension(20,20));
 			itemMenuPanel.add(button);
 		}
 //		
+		//sets up layout for orderPanel with GridBagLayout
+		orderPanel.setLayout(new GridBagLayout());
+		GridBagConstraints panelConstraints = new GridBagConstraints();
+		panelConstraints.gridx = 0;
+		panelConstraints.gridy = 0;
+		
+		//adding labels, text area and a panel to the orderPanel in order with the gridBagLayout gridy method
+		JLabel orderLabel = new JLabel("Modify Items Below");
+		orderLabel.setForeground(Color.lightGray);
+		
+		orderPanel.add(orderLabel, panelConstraints);
+		
+		panelConstraints.gridy = 1;
+		
+		JPanel innerOrderPanel = new JPanel();
+		orderPanel.add(innerOrderPanel, panelConstraints);
+		JTextArea orderArea = new JTextArea();
+		innerOrderPanel.add(orderArea);
+		innerOrderPanel.setPreferredSize(new Dimension(300, 500));
+		
+		panelConstraints.gridy = 2;
+		
+		JLabel extraInformationLabel = new JLabel("Add any specifications here");
+		extraInformationLabel.setForeground(Color.lightGray);
+		orderPanel.add(extraInformationLabel, panelConstraints);
+		
+		panelConstraints.gridy = 3;
+		
+		JTextArea extraInformationArea = new JTextArea();
+		extraInformationArea.setPreferredSize(new Dimension(300, 100));
+		orderPanel.add(extraInformationArea, panelConstraints);
 		
 		//sets the frame size
 		this.setSize(1050, 750);
