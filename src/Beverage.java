@@ -59,4 +59,11 @@ public class Beverage extends MenuItem
 
 	}
 
+	@Override
+	public String getItemName()
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

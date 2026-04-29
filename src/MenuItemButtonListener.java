@@ -39,7 +39,7 @@ public class MenuItemButtonListener implements ActionListener
 	private OrderingInterface view;
 	
 	
-	//constructor which initializes 
+	//constructor which initializes the relevant objects
 	public MenuItemButtonListener(MenuItem menuItem, OrderingModel orderingModel, OrderingInterface orderingInterface) 
 	{
 		this.item = menuItem;
