@@ -32,10 +32,10 @@ public class Beverage extends MenuItem
 	}
 
 	@Override
-	public int getID()
+	public String getID()
 	{
 		// TODO Auto-generated method stub
-		return 0;
+		return "--";
 	}
 
 	@Override

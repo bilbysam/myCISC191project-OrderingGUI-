@@ -21,7 +21,7 @@
  * Soup is-a ...
  * Soup is ...
  */
-public class Soup extends MenuItem
+public abstract class Soup extends MenuItem
 {
 
 	@Override
@@ -32,10 +32,10 @@ public class Soup extends MenuItem
 	}
 
 	@Override
-	public int getID()
+	public String getID()
 	{
 		// TODO Auto-generated method stub
-		return 0;
+		return "--";
 	}
 
 	@Override

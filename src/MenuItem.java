@@ -21,7 +21,9 @@ public abstract class MenuItem
 	public abstract double getPrice();
 	
 	//returns a integer signifying the specific items ID
-	abstract public int getID();
+	abstract public String getID();
+	
+	abstract public String getItemName();
 	
 	//returns a integer for the number of items requested in the order
 	abstract public int getCount();
@@ -33,4 +35,8 @@ public abstract class MenuItem
 	abstract public void decreaseCount();
 	
 
+	//maybe have every item stored in a item list with itemlists attached like in the node project so that it can print buttons with values attached automatically
+	//for index in this.getSoups() spawn soup button that interacts with soup
+	
+	
 }

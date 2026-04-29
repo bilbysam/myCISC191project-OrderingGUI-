@@ -27,7 +27,7 @@ import java.util.ArrayList;
 public class Order
 {
 	//An Order has-many MenuItems
-	private ArrayList<MenuItem> order;
+	private ArrayList<MenuItem> orderItemList;
 	
 	private int totalCount = 0;
 	
@@ -39,12 +39,17 @@ public class Order
 		
 	}
 
+	public ArrayList<MenuItem> getOrderList()
+	{
+		return this.orderItemList;
+	}
+	
 	//returns the combined count values for every item in the order
 	public int getTotalCount()
 	{
-		for (int index = 0; index < order.size(); index++) 
+		for (int index = 0; index < orderItemList.size(); index++) 
 		{
-			this.totalCount += order.get(index).getCount();
+			this.totalCount += orderItemList.get(index).getCount();
 		}
 		return this.totalCount;
 	}
@@ -52,9 +57,9 @@ public class Order
 	//returns the combined price values for every item in the order
 	public double getTotalPrice() 
 	{
-		for (int index = 0; index < order.size(); index++) 
+		for (int index = 0; index < orderItemList.size(); index++) 
 		{
-			this.totalPrice += order.get(index).getPrice();
+			this.totalPrice += orderItemList.get(index).getPrice();
 		}
 		return this.totalPrice;
 	}
@@ -65,4 +70,18 @@ public class Order
 		return "";
 		
 	}
+	
+	//if the order has an item in it / find the item in the order and return its location else return -1/ then whatever method called this can modify count or anything else
+	public int findItem(MenuItem item) 
+	{
+		if (this.orderItemList.contains(item)) 
+		{
+			return orderItemList.indexOf(item);
+		}
+		else 
+		{
+			return -1;
+		}
+	}
+	
 }
