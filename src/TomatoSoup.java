@@ -18,12 +18,7 @@
 * Version: 2026-04-28
 */
 
-/**
- * Purpose: The reponsibility of TomatoSoup is ...
- *
- * TomatoSoup is-a ...
- * TomatoSoup is ...
- */
+//TomatoSoup is-a Soup
 public class TomatoSoup extends Soup
 {
 	//Tomato Soup has-a price

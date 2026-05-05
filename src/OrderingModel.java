@@ -23,6 +23,12 @@ public class OrderingModel
 	//An orderingModel has a current order it is modifying
 	private Order currentOrder;
 	
+	//returns the current order the model is using
+	public Order getOrder() 
+	{
+		return this.currentOrder;
+	}
+	
 	public OrderingModel() 
 	{
 		Order firstOrder = new Order();
@@ -36,7 +42,7 @@ public class OrderingModel
 		this.currentOrder = emptyOrder;
 	}
 	
-	//method used when buttons for ordering items are picked
+	//method used when the buttons used for ordering items are clicked to add the item to the order or increase its count
 	public void itemOrdered(MenuItem item) 
 	{
 		//if the item isn't in the order list then adds the item to the list
@@ -52,6 +58,24 @@ public class OrderingModel
 		}
 	}
 	
-	
+	//method for creating a string record of the current order
+	public String recordOrder(Order order) 
+	{
+		String record = "";
+		
+		//adds the total number of items to the string
+		record += order.getTotalCount();
+		
+		//cycles through the objects in the order and adds their count and ID to the order
+		for (int index = 0; index < order.getOrderList().size(); index++) 
+		{
+			if (order.getOrderList().get(index) != null) 
+			{
+				record += order.getOrderList().get(index).getCount();
+				record += order.getOrderList().get(index);
+			}
+		}
+		return record;
+	}
 	
 }

@@ -18,12 +18,7 @@
 * Version: 2026-04-28
 */
 
-/**
- * Purpose: The reponsibility of HotChocolate is ...
- *
- * HotChocolate is-a ...
- * HotChocolate is ...
- */
+//HotChocolate is-a Beverage
 public class HotChocolate extends Beverage
 {
 	//Hot Chocolate has-a price

@@ -45,7 +45,7 @@ import javax.swing.JTextArea;
 public class OrderingInterface extends JFrame
 {
 
-	public OrderingInterface() 
+	public OrderingInterface(OrderingModel model) 
 	{
 		
 		
@@ -106,7 +106,7 @@ public class OrderingInterface extends JFrame
 			JPanel gridPanel = new JPanel();
 			gridPanel.setLayout(new GridLayout(0,4));
 			
-			JButton button = new JButton("footNameOrImage");
+			JButton button = new JButton("foodNameOrImage");
 			button.setPreferredSize(new Dimension(20,20));
 			itemMenuPanel.add(button);
 		}
@@ -143,6 +143,11 @@ public class OrderingInterface extends JFrame
 		extraInformationArea.setPreferredSize(new Dimension(300, 100));
 		orderPanel.add(extraInformationArea, panelConstraints);
 		
+		panelConstraints.gridy = 4;
+		
+		JButton submitButton = new JButton("Subit");
+		orderPanel.add(submitButton, panelConstraints);
+		
 		//sets the frame size
 		this.setSize(1050, 750);
 		
@@ -156,7 +161,7 @@ public class OrderingInterface extends JFrame
 	public static void main(String[] args) 
 	{
 		//Should have the model in it?
-		new OrderingInterface();
+		new OrderingInterface(new OrderingModel());
 	}
 	
 }

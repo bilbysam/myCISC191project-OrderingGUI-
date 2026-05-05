@@ -18,12 +18,7 @@
 
 import java.util.ArrayList;
 
-/**
- * Purpose: The responsibility of Order is ...
- *
- * Order is-a ...
- * Order is ...
- */
+
 public class Order
 {
 	//An Order has-many MenuItems

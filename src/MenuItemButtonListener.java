@@ -21,12 +21,7 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- * Purpose: The reponsibility of MenuItemButtonListener is ...
- *
- * MenuItemButtonListener is-a ...
- * MenuItemButtonListener is ...
- */
+//MenuItemButtonListener is-a ActionListener
 public class MenuItemButtonListener implements ActionListener
 {
 	//A menuItemButtonListener has-a item that it can add to the order
@@ -52,7 +47,8 @@ public class MenuItemButtonListener implements ActionListener
 	public void actionPerformed(ActionEvent e)
 	{
 		model.itemOrdered(item);
-		//do an update in the UI if it hasn't already
+		
+		//do an update in the UI if it hasn't already to add a panel with buttons and a label with info on the count and item
 	}
 
 }
