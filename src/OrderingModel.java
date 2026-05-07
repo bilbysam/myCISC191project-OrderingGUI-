@@ -11,6 +11,8 @@
 * https://open.umn.edu/opentextbooks/textbooks/java-java-java-object-oriented-problem-solving
 *
 * <<Add more references here>>
+* https://www.geeksforgeeks.org/java/java-current-date-time/ 
+*^LocalDate
 *
 * Version: 2026-04-01
 */
@@ -18,6 +20,9 @@
 /**
  * OrderingModel is the model of the GUI which deals with all its data
  */
+
+import java.time.LocalDate;
+
 public class OrderingModel
 {
 	//An orderingModel has a current order it is modifying
@@ -63,11 +68,18 @@ public class OrderingModel
 	{
 		String record = "";
 		
+		//adds current date to the string
+		LocalDate date = LocalDate.now();
+		record += date;
+		
 		//adds the total number of items to the string
 		record += order.getTotalCount();
 		
 		//cycles through the objects in the order and adds their count and ID to the order
-		for (int index = 0; index < order.getOrderList().size(); index++) 
+
+
+
+for (int index = 0; index < order.getOrderList().size(); index++) 
 		{
 			if (order.getOrderList().get(index) != null) 
 			{

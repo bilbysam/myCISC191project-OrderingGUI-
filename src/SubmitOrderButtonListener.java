@@ -49,8 +49,7 @@ public class SubmitOrderButtonListener implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-		File desktop = new File(System.getProperty("user.home"),"Desktop");
-		File file = new File(desktop, "DataBase");
+		File file = new File("DataBase");
 		try
 		{
 			//uses the models recordOrder method and creates a PrintWriter to record the current order to the DataBase file
