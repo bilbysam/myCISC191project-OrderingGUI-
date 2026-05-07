@@ -22,7 +22,7 @@ import java.util.ArrayList;
 public class Order
 {
 	//An Order has-many MenuItems
-	private ArrayList<MenuItem> orderItemList;
+	private ArrayList<MenuItem> orderItemList = new ArrayList<MenuItem>();
 	
 	private int totalCount = 0;
 	
@@ -69,12 +69,14 @@ public class Order
 	//if the order has an item in it / find the item in the order and return its location else return -1/ then whatever method called this can modify count or anything else
 	public int findItem(MenuItem item) 
 	{
+
 		if (this.orderItemList.contains(item)) 
 		{
 			return orderItemList.indexOf(item);
 		}
 		else 
 		{
+			//maybe throw a unique exception for item not found
 			return -1;
 		}
 	}

@@ -108,6 +108,10 @@ public class OrderingInterface extends JFrame
 			
 			JButton button = new JButton("foodNameOrImage");
 			button.setPreferredSize(new Dimension(20,20));
+			//testing actionListener
+			TomatoSoup soupTest = new TomatoSoup();
+			button.addActionListener(new MenuItemButtonListener(soupTest, model, this));
+			
 			itemMenuPanel.add(button);
 		}
 //		
@@ -145,7 +149,10 @@ public class OrderingInterface extends JFrame
 		
 		panelConstraints.gridy = 4;
 		
-		JButton submitButton = new JButton("Subit");
+		JButton submitButton = new JButton("Submit");
+		//testing actionListener
+		submitButton.addActionListener(new SubmitOrderButtonListener(model, this));
+		
 		orderPanel.add(submitButton, panelConstraints);
 		
 		//sets the frame size
