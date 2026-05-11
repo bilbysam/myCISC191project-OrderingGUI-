@@ -49,23 +49,33 @@ public class SubmitOrderButtonListener implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-		File file = new File("DataBase");
+		PrintWriter writer = null;
+		
 		try
 		{
 			//uses the models recordOrder method and creates a PrintWriter to record the current order to the DataBase file
 			Order currentOrder = model.getOrder();
-			PrintWriter writer = new PrintWriter(new FileWriter(file), true);
+			
+			writer = new PrintWriter(new FileWriter(new File("DataSet.txt"), true), true);
 			writer.println(model.recordOrder(currentOrder));
 			
 			//replaces the order with an empty order
 			model.removeOrder();
 			
 			writer.close();
+			
 		}
 		catch (IOException exception)
 		{
 			exception.printStackTrace();
 			System.out.println("Output error or couldn't find the file?");
+		}
+		finally 
+		{
+			if (writer != null) 
+			{
+				writer.close();
+			}
 		}
 	}
 

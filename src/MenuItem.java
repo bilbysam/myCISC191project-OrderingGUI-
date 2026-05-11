@@ -28,6 +28,9 @@ public abstract class MenuItem
 	//returns a integer for the number of items requested in the order
 	abstract public int getCount();
 	
+	//resets the count value
+	abstract public void resetCount(); 
+	
 	//increases the count variable by 1
 	abstract public void increaseCount();
 	

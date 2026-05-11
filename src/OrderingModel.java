@@ -53,7 +53,12 @@ public class OrderingModel
 		//if the item isn't in the order list then adds the item to the list
 		if (this.currentOrder.findItem(item) == -1) 
 		{
+			item.resetCount();
 			currentOrder.getOrderList().add(item);
+			
+			//gets the currentOrder's list and gets the equivalent item from the list and increases its count by 1
+			int itemIndex = currentOrder.findItem(item);
+			currentOrder.getOrderList().get(itemIndex).increaseCount();
 		}
 		else 
 		{
@@ -72,22 +77,30 @@ public class OrderingModel
 		LocalDate date = LocalDate.now();
 		record += date;
 		
+		record += ".";
+		
 		//adds the total number of items to the string
 		record += order.getTotalCount();
 		
 		//cycles through the objects in the order and adds their count and ID to the order
-
-
-
-for (int index = 0; index < order.getOrderList().size(); index++) 
+		for (int index = 0; index < order.getOrderList().size(); index++) 
 		{
 			if (order.getOrderList().get(index) != null) 
 			{
-				record += order.getOrderList().get(index).getCount();
-				record += order.getOrderList().get(index);
+				//creates a string which the record shouldn't have multiple copies of and assigns it to stringCheck
+				String stringCheck = order.getOrderList().get(index).getCount() + "." + order.getOrderList().get(index).getID();
+				
+				//only adds the count and ID if they are not already added
+				if (record.contains(stringCheck) == false) 
+				{
+					record += ".";
+					record += order.getOrderList().get(index).getCount();
+					record += ".";
+					record += order.getOrderList().get(index).getID();
+				}
 			}
 		}
-		return record;
+		return record + "\n";
 	}
 	
 }

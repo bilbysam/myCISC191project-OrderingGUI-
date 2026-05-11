@@ -77,6 +77,13 @@ public class TomatoSoup extends Soup
 
 	}
 
+	@Override
+	public void resetCount()
+	{
+		this.count = 0;
+		
+	}
+
 	
 
 }
