@@ -56,6 +56,7 @@ public class SubmitOrderButtonListener implements ActionListener
 			//uses the models recordOrder method and creates a PrintWriter to record the current order to the DataBase file
 			Order currentOrder = model.getOrder();
 			
+			//sets the PrintWriter up to append strings to the DataSet.txt file
 			writer = new PrintWriter(new FileWriter(new File("DataSet.txt"), true), true);
 			writer.println(model.recordOrder(currentOrder));
 			

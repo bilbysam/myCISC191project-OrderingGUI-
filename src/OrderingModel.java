@@ -43,6 +43,11 @@ public class OrderingModel
 	//replaces the current list of items in the order with an empty order
 	public void removeOrder() 
 	{
+		for (int index = 0; index < currentOrder.getOrderList().size(); index++) 
+		{
+			currentOrder.getOrderList().get(index).resetCount();
+		}
+		
 		Order emptyOrder = new Order();
 		this.currentOrder = emptyOrder;
 	}
@@ -53,7 +58,6 @@ public class OrderingModel
 		//if the item isn't in the order list then adds the item to the list
 		if (this.currentOrder.findItem(item) == -1) 
 		{
-			item.resetCount();
 			currentOrder.getOrderList().add(item);
 			
 			//gets the currentOrder's list and gets the equivalent item from the list and increases its count by 1
@@ -100,6 +104,7 @@ public class OrderingModel
 				}
 			}
 		}
+		
 		return record + "\n";
 	}
 	
