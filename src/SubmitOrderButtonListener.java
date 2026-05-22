@@ -60,10 +60,15 @@ public class SubmitOrderButtonListener implements ActionListener
 			writer = new PrintWriter(new FileWriter(new File("DataSet.txt"), true), true);
 			writer.println(model.recordOrder(currentOrder));
 			
+			//creates a file with the submitted order information to be a receipt
+			Receipt receipt = new Receipt(currentOrder);
+			receipt.createReceiptFile(receipt.createRecieptArray(currentOrder));
+			
 			//replaces the order with an empty order
 			model.removeOrder();
 			
-			writer.close();
+			//testing retrieveLastOrder();
+//			model.retreiveLastOrder();
 			
 		}
 		catch (IOException exception)
@@ -80,4 +85,5 @@ public class SubmitOrderButtonListener implements ActionListener
 		}
 	}
 
+	
 }

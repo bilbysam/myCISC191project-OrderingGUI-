@@ -75,4 +75,11 @@ public class HotChocolate extends Beverage
 		this.count--;
 	}
 
+	@Override
+	public void resetCount()
+	{
+		this.count = 0;
+		
+	}
+
 }

@@ -13,6 +13,8 @@
 * <<Add more references here>>
 * https://www.geeksforgeeks.org/java/java-current-date-time/ 
 *^LocalDate
+*https://phoenixnap.com/kb/string-to-integer-java
+*^string to integer, parse int method
 *
 * Version: 2026-04-01
 */
@@ -21,7 +23,11 @@
  * OrderingModel is the model of the GUI which deals with all its data
  */
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.time.LocalDate;
+import java.util.Scanner;
 
 public class OrderingModel
 {
@@ -81,10 +87,15 @@ public class OrderingModel
 		LocalDate date = LocalDate.now();
 		record += date;
 		
-		record += ".";
+		record += "[";
 		
 		//adds the total number of items to the string
-		record += order.getTotalCount();
+		record +=  order.getTotalCount();
+		
+		record += ".";
+		
+		//adds the total price of the order to the string
+		record += "($" + order.getTotalPrice() + ")";
 		
 		//cycles through the objects in the order and adds their count and ID to the order
 		for (int index = 0; index < order.getOrderList().size(); index++) 
@@ -104,8 +115,54 @@ public class OrderingModel
 				}
 			}
 		}
-		
+		record += "]";
 		return record + "\n";
 	}
+	
+	//to-do
+//	//replaces the current order with the last order in the dataset
+//	public Order retreiveLastOrder() 
+//	{
+//		Scanner reader = null;
+//		try 
+//		{
+//			String lastOrder = null;
+//			File file = new File("DataSet.txt");
+//			reader = new Scanner(file);
+//			while (reader.hasNext()) 
+//			{
+//				lastOrder = reader.nextLine();
+//			}
+//			LocalDate date = LocalDate.now();
+//			String dateString = "" + date;
+//		
+//			
+//			int uniqueItemCount = Integer.parseInt(lastOrder.substring(lastOrder.indexOf("[") + 1, lastOrder.indexOf(".")));
+//			for (int count = uniqueItemCount; count > 0; count--) 
+//			{
+//				
+//			}
+//			
+//			
+//			System.out.println(lastOrder.substring(lastOrder.indexOf("[") + 1, lastOrder.indexOf(".")));
+//			Order order = new Order();
+//			return order;
+//		}
+//		catch (FileNotFoundException e)
+//		{
+//			e.printStackTrace();
+//			Order order = new Order();
+//			return order;
+//		}
+//		
+//		finally
+//		{
+//			if (reader != null) 
+//			{
+//				reader.close();
+//			}
+//		}
+		
+//	}
 	
 }

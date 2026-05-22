@@ -54,7 +54,7 @@ public class Order
 	{
 		for (int index = 0; index < orderItemList.size(); index++) 
 		{
-			this.totalPrice += orderItemList.get(index).getPrice();
+			this.totalPrice += orderItemList.get(index).getPrice() * orderItemList.get(index).getCount();
 		}
 		return this.totalPrice;
 	}

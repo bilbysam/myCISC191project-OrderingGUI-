@@ -25,38 +25,24 @@ public abstract class Soup extends MenuItem
 {
 
 	@Override
-	public double getPrice()
-	{
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	abstract public double getPrice();
 
 	@Override
-	public String getID()
-	{
-		// TODO Auto-generated method stub
-		return "--";
-	}
+	abstract public String getID();
+	
+	@Override
+	abstract public int getCount();
+	
+	@Override
+	abstract public void increaseCount();	
 
 	@Override
-	public int getCount()
-	{
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
+	abstract public void decreaseCount();
+	
 	@Override
-	public void increaseCount()
-	{
-		// TODO Auto-generated method stub
-
-	}
-
+	abstract public String getItemName();
+	
 	@Override
-	public void decreaseCount()
-	{
-		// TODO Auto-generated method stub
-
-	}
+	abstract public void resetCount();
 
 }

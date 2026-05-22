@@ -15,6 +15,8 @@
 * ^GridBagLayout
 * https://stackoverflow.com/questions/24848606/how-to-make-gridlayout-to-respect-columns-setting
 * ^control amount of columns by setting rows to 0
+* https://docs.oracle.com/javase/8/docs/api/javax/swing/border/EmptyBorder.html
+* ^is used for creating space around a panel 
 *
 * Version: 2026-04-01
 */
@@ -27,6 +29,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -34,6 +37,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.border.Border;
 
 /**
  * OrderingInterface is-a JFrame and acts as the View of the GUI
@@ -73,7 +77,7 @@ public class OrderingInterface extends JFrame
 		this.add(itemMenuScrollPane, baseConstraints);
 		
 		//sets a gridlayout for button prioritizing filling columns to the required amount rather than rows
-		itemMenuPanel.setLayout(new GridLayout(0, 4, 30, 30));
+		itemMenuPanel.setLayout(new GridLayout(2, 1));
 		
 		
 		
@@ -100,20 +104,55 @@ public class OrderingInterface extends JFrame
 		this.add(orderPanel, baseConstraints);
 		
 		
-		//test adding buttons to the right Panel
-		for (int buttonCount = 0; buttonCount < 30; buttonCount++) 
+		//switch from grid to gridbag for the itemMenu section section
+		
+		
+		
+//		//soups section label
+//		JLabel soupsLabel = new JLabel("Soups:");
+//		itemMenuPanel.add(soupsLabel);
+		
+		//soup button section
+		JPanel foodMenuPanel = new JPanel();
+		foodMenuPanel.setLayout(new GridLayout(0, 4, 30, 10));
+		foodMenuPanel.setSize(new Dimension(500,500));
+		itemMenuPanel.add(foodMenuPanel);
+		foodMenuPanel.setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30));
+		
+		
+		for (int buttonCount = 0; buttonCount < 8; buttonCount++) 
 		{
-			JPanel gridPanel = new JPanel();
-			gridPanel.setLayout(new GridLayout(0,4));
-			
-			JButton button = new JButton("foodNameOrImage");
-			button.setPreferredSize(new Dimension(20,20));
+			JButton button = new JButton("food");
 			//testing actionListener
 			TomatoSoup soupTest = new TomatoSoup();
 			button.addActionListener(new MenuItemButtonListener(soupTest, model, this));
 			
-			itemMenuPanel.add(button);
+			foodMenuPanel.add(button);
 		}
+		
+//		//drinks section Label
+//		JLabel beveragesLabel = new JLabel("Beverages");
+//		itemMenuPanel.add(beveragesLabel);
+		
+		//beverage button section
+		JPanel beverageMenuPanel = new JPanel();
+		beverageMenuPanel.setLayout(new GridLayout(0, 4, 30, 10));
+		beverageMenuPanel.setSize(new Dimension(500,500));
+		itemMenuPanel.add(beverageMenuPanel);
+		beverageMenuPanel.setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30));
+		
+		
+		for (int buttonCount = 0; buttonCount < 8; buttonCount++) 
+		{
+			JButton button = new JButton("drink");
+			//testing actionListener
+			TomatoSoup soupTest = new TomatoSoup();
+			button.addActionListener(new MenuItemButtonListener(soupTest, model, this));
+			
+			beverageMenuPanel.add(button);
+		}
+		
+		
 //		
 		//sets up layout for orderPanel with GridBagLayout
 		orderPanel.setLayout(new GridBagLayout());
