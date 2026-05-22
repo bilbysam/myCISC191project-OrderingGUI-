@@ -88,7 +88,7 @@ public class OrderingInterface extends JFrame
 		orderPanel.setPreferredSize(new Dimension(400, 250));
 		
 		//color for helping visualize space taken up
-		orderPanel.setBackground(Color.blue);
+		orderPanel.setBackground(Color.LIGHT_GRAY);
 		
 		//sets this as the next panel after the one at the last gridx 
 		baseConstraints.gridx = 1;
@@ -162,7 +162,7 @@ public class OrderingInterface extends JFrame
 		
 		//adding labels, text area and a panel to the orderPanel in order with the gridBagLayout gridy method
 		JLabel orderLabel = new JLabel("Modify Items Below");
-		orderLabel.setForeground(Color.lightGray);
+		orderLabel.setForeground(Color.BLACK);
 		
 		orderPanel.add(orderLabel, panelConstraints);
 		
@@ -170,14 +170,13 @@ public class OrderingInterface extends JFrame
 		
 		JPanel innerOrderPanel = new JPanel();
 		orderPanel.add(innerOrderPanel, panelConstraints);
-		JTextArea orderArea = new JTextArea();
-		innerOrderPanel.add(orderArea);
 		innerOrderPanel.setPreferredSize(new Dimension(300, 500));
+		innerOrderPanel.setForeground(Color.WHITE);
 		
 		panelConstraints.gridy = 2;
 		
 		JLabel extraInformationLabel = new JLabel("Add any specifications here");
-		extraInformationLabel.setForeground(Color.lightGray);
+		extraInformationLabel.setForeground(Color.BLACK);
 		orderPanel.add(extraInformationLabel, panelConstraints);
 		
 		panelConstraints.gridy = 3;
