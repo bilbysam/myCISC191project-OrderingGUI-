@@ -24,12 +24,18 @@ import java.io.PrintWriter;
  */
 public class Receipt
 {
+	//a receipt has-a order
 	private Order order;
 	
+	//a receipt has-a view that informs the user that an error has occurred
+	private OrderingInterface view;
+	
 	//constructor which
-	public Receipt(Order orderInstance) 
+	public Receipt(Order orderInstance, OrderingInterface orderingInterface) 
 	{
 		this.order = orderInstance;
+		
+		this.view = orderingInterface;
 		
 	}
 	
@@ -79,9 +85,7 @@ public class Receipt
 		}
 		catch (FileNotFoundException e)
 		{
-			
-			System.out.println("Output error or couldn't find the file?");
-			e.printStackTrace();
+			view.fileError();
 		}
 		finally 
 		{

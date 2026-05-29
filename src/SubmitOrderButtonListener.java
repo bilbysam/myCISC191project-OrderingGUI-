@@ -61,7 +61,7 @@ public class SubmitOrderButtonListener implements ActionListener
 			writer.println(model.recordOrder(currentOrder));
 			
 			//creates a file with the submitted order information to be a receipt
-			Receipt receipt = new Receipt(currentOrder);
+			Receipt receipt = new Receipt(currentOrder, view);
 			receipt.createReceiptFile(receipt.createRecieptArray(currentOrder));
 			
 			//replaces the order with an empty order
@@ -73,8 +73,7 @@ public class SubmitOrderButtonListener implements ActionListener
 		}
 		catch (IOException exception)
 		{
-			exception.printStackTrace();
-			System.out.println("Output error or couldn't find the file?");
+			view.fileError();
 		}
 		finally 
 		{

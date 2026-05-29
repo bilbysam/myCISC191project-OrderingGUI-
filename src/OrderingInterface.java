@@ -33,6 +33,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
@@ -49,6 +50,11 @@ import javax.swing.border.Border;
 public class OrderingInterface extends JFrame
 {
 
+	JButton addButton;
+	
+	JButton removeButton;
+	
+	
 	public OrderingInterface(OrderingModel model) 
 	{
 		
@@ -146,8 +152,8 @@ public class OrderingInterface extends JFrame
 		{
 			JButton button = new JButton("drink");
 			//testing actionListener
-			TomatoSoup soupTest = new TomatoSoup();
-			button.addActionListener(new MenuItemButtonListener(soupTest, model, this));
+			HotChocolate beverageTest = new HotChocolate();
+			button.addActionListener(new MenuItemButtonListener(beverageTest, model, this));
 			
 			beverageMenuPanel.add(button);
 		}
@@ -208,5 +214,25 @@ public class OrderingInterface extends JFrame
 		//Should have the model in it?
 		new OrderingInterface(new OrderingModel());
 	}
+	
+	//method for giving the user an error message if there are IO errors
+	public void fileError() 
+	{
+		JOptionPane.showMessageDialog(null, "Our Apologies. There seems to have been a file error. Please inform staff.");
+	}
+	
+	//adds new buttons and item information? to the orderPanel
+//	public void addNewButtons(MenuItem item) 
+//	{
+//		if (addButton == null && removeButton == null) 
+//		{
+//			addButton = new JButton("+");
+//			removeButton = new JButton("-");
+//			
+//			
+//		}
+//		
+//	}
+	
 	
 }
