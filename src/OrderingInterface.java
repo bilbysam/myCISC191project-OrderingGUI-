@@ -17,6 +17,9 @@
 * ^control amount of columns by setting rows to 0
 * https://docs.oracle.com/javase/8/docs/api/javax/swing/border/EmptyBorder.html
 * ^is used for creating space around a panel 
+*https://stackoverflow.com/questions/70186275/java-adding-and-removing-buttons-during-runtime
+*^source for using revalidate and repaint
+*
 *
 * Version: 2026-04-01
 */
@@ -50,9 +53,17 @@ import javax.swing.border.Border;
 public class OrderingInterface extends JFrame
 {
 
-	JButton addButton;
+	private JButton addButton;
 	
-	JButton removeButton;
+	private JButton removeButton;
+	
+	private JPanel innerOrderPanel;
+	
+	private JLabel itemLabel;
+	
+	private JLabel itemCount;
+	
+	private static int gridPosition = 0;
 	
 	
 	public OrderingInterface(OrderingModel model) 
@@ -110,9 +121,6 @@ public class OrderingInterface extends JFrame
 		this.add(orderPanel, baseConstraints);
 		
 		
-		//switch from grid to gridbag for the itemMenu section section
-		
-		
 		
 //		//soups section label
 //		JLabel soupsLabel = new JLabel("Soups:");
@@ -126,14 +134,22 @@ public class OrderingInterface extends JFrame
 		foodMenuPanel.setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30));
 		
 		
-		for (int buttonCount = 0; buttonCount < 8; buttonCount++) 
+		TomatoSoup tomatoSoup = new TomatoSoup();
+		ChickenNoodleSoup chickenNoodleSoup = new ChickenNoodleSoup();
+		CreamSoup creamSoup = new CreamSoup();
+		PotatoSoup potatoSoup = new PotatoSoup();
+		LentilSoup lentilSoup = new LentilSoup();
+		MushroomSoup mushroomSoup = new MushroomSoup();
+		MysterySoup mysterySoup = new MysterySoup();
+		
+		//sets up buttons for all of the soups
+		Soup[] soups = {tomatoSoup, chickenNoodleSoup, creamSoup, potatoSoup, lentilSoup, mushroomSoup, mysterySoup};
+		
+		for (int index = 0; index < soups.length; index++) 
 		{
-			JButton button = new JButton("food");
-			//testing actionListener
-			TomatoSoup soupTest = new TomatoSoup();
-			button.addActionListener(new MenuItemButtonListener(soupTest, model, this));
-			
-			foodMenuPanel.add(button);
+			JButton button = new JButton(soups[index].getItemName());
+			button.addActionListener(new MenuItemButtonListener(soups[index], model, this));
+			foodMenuPanel.add(button);	
 		}
 		
 //		//drinks section Label
@@ -148,13 +164,18 @@ public class OrderingInterface extends JFrame
 		beverageMenuPanel.setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30));
 		
 		
-		for (int buttonCount = 0; buttonCount < 8; buttonCount++) 
+		HotChocolate hotChocolate = new HotChocolate();
+		IcedTea icedTea = new IcedTea();
+		GreenTea greenTea = new GreenTea();
+		PeppermintTea peppermintTea = new PeppermintTea();
+		BlackCoffee blackCoffee = new BlackCoffee();
+		
+		Beverage[] beverages = {hotChocolate, icedTea, greenTea, peppermintTea, blackCoffee};
+		
+		for (int index = 0; index < beverages.length; index++) 
 		{
-			JButton button = new JButton("drink");
-			//testing actionListener
-			HotChocolate beverageTest = new HotChocolate();
-			button.addActionListener(new MenuItemButtonListener(beverageTest, model, this));
-			
+			JButton button = new JButton(beverages[index].getItemName());
+			button.addActionListener(new MenuItemButtonListener(beverages[index], model, this));
 			beverageMenuPanel.add(button);
 		}
 		
@@ -174,7 +195,8 @@ public class OrderingInterface extends JFrame
 		
 		panelConstraints.gridy = 1;
 		
-		JPanel innerOrderPanel = new JPanel();
+		innerOrderPanel = new JPanel();
+		innerOrderPanel.setLayout(new GridBagLayout());
 		orderPanel.add(innerOrderPanel, panelConstraints);
 		innerOrderPanel.setPreferredSize(new Dimension(300, 500));
 		innerOrderPanel.setForeground(Color.WHITE);
@@ -205,15 +227,14 @@ public class OrderingInterface extends JFrame
 		//lets the GUI be seen and closed
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);	
-//		pack();
 	}
 	
 	//main method to run the GUI
 	public static void main(String[] args) 
 	{
-		//Should have the model in it?
 		new OrderingInterface(new OrderingModel());
 	}
+	
 	
 	//method for giving the user an error message if there are IO errors
 	public void fileError() 
@@ -221,18 +242,51 @@ public class OrderingInterface extends JFrame
 		JOptionPane.showMessageDialog(null, "Our Apologies. There seems to have been a file error. Please inform staff.");
 	}
 	
-	//adds new buttons and item information? to the orderPanel
-//	public void addNewButtons(MenuItem item) 
-//	{
-//		if (addButton == null && removeButton == null) 
-//		{
-//			addButton = new JButton("+");
-//			removeButton = new JButton("-");
-//			
-//			
-//		}
-//		
-//	}
+	//
+	public void createOrderView(MenuItem item, OrderingModel model) 
+	{
+		if (item.getCount() == 1) 
+		{
+			//creates a panel with an ordered item label with a item name, the items count, and buttons to control the count
+			JPanel newItemPanel = new JPanel();
+			
+			GridBagLayout checkOutLayout = (GridBagLayout) innerOrderPanel.getLayout();
+			GridBagConstraints checkOutConstraints = checkOutLayout.getConstraints(newItemPanel);
+			gridPosition++;
+			checkOutConstraints.gridy = gridPosition;
+			innerOrderPanel.add(newItemPanel, checkOutConstraints);
+			
+			
+			
+			JLabel itemLabel = new JLabel(item.getItemName());
+			JLabel itemCount = new JLabel(item.getCount() + "x" + " " + item.getPrice());
+			JButton addButton = new JButton("+");
+			JButton removeButton = new JButton("-");
+			
+			removeButton.addActionListener(new DecreaseCountListener(itemCount, item));
+			addButton.addActionListener(new MenuItemButtonListener(item, model, this));
+			addButton.addActionListener(new IncreaseCountUpdateListener(itemCount, item));
+		
+			newItemPanel.add(addButton);
+			newItemPanel.add(removeButton);
+			newItemPanel.add(itemLabel);
+			newItemPanel.add(itemCount);
+		
+			//updates the frame to have the new buttons
+			this.revalidate();
+			this.repaint();
+		}
+	}
 	
+	//removes the buttons that aren't in use anymore
+	public void removeComponents()
+		{
+			innerOrderPanel.removeAll();
+			
+			//updates the frame to have the new buttons
+			this.revalidate();
+			this.repaint();
+			
+		}
 	
 }

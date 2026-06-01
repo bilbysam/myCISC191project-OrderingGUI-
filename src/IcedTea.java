@@ -15,22 +15,23 @@
 *
 * <<Add more references here>>
 *
-* Version: 2026-04-28
+* Version: 2026-05-31
 */
 
-//HotChocolate is-a Beverage
-public class HotChocolate extends Beverage
+
+//Iced Tea is-a Beverage
+public class IcedTea extends Beverage
 {
-	//Hot Chocolate has-a price
-	private double price = 1.99;
+	//Iced Tea has-a price
+	private double price = 2.49;
 		
-	//Hot Chocolate has-a Identification Number
-	private String ID = "08";
+	//Iced Tea has-a Identification Number
+	private String ID = "09";
 		
-	//Hot Chocolate has-a name
-	private String name = "Hot Chocolate";
+	//Iced Tea has-a name
+	private String name = "Iced Tea";
 		
-	//Hot Chocolate has-a number count representing the amount of it being ordered
+	//Iced Tea has-a number count representing the amount of it being ordered
 	private int count = 0;
 	
 	//returns the objects price

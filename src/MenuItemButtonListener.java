@@ -46,10 +46,11 @@ public class MenuItemButtonListener implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-		model.itemOrdered(item);
+		model.itemOrdered(item, view);
 		
 		
 		//do an update in the UI if it hasn't already to add a panel with buttons and a label with info on the count and item
+		
 	}
 
 }

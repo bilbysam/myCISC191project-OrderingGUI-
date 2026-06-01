@@ -5,6 +5,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.swing.JOptionPane;
+
 /**
 * Lead Author(s):
 * @author samwi; student ID
@@ -66,9 +68,12 @@ public class SubmitOrderButtonListener implements ActionListener
 			
 			//replaces the order with an empty order
 			model.removeOrder();
+			view.removeComponents();
+			
+			JOptionPane.showMessageDialog(null, "Thank you for your order. Please check your receipt in the receipt file.");
 			
 			//testing retrieveLastOrder();
-//			model.retreiveLastOrder();
+			model.retreiveLastOrder();
 			
 		}
 		catch (IOException exception)

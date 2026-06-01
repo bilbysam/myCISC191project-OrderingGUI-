@@ -29,10 +29,14 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Scanner;
 
+import javax.swing.JOptionPane;
+
 public class OrderingModel
-{
+{	
 	//An orderingModel has a current order it is modifying
 	private Order currentOrder;
+	
+	
 	
 	//returns the current order the model is using
 	public Order getOrder() 
@@ -59,7 +63,7 @@ public class OrderingModel
 	}
 	
 	//method used when the buttons used for ordering items are clicked to add the item to the order or increase its count
-	public void itemOrdered(MenuItem item) 
+	public void itemOrdered(MenuItem item, OrderingInterface view) 
 	{
 		//if the item isn't in the order list then adds the item to the list
 		if (this.currentOrder.findItem(item) == -1) 
@@ -69,13 +73,9 @@ public class OrderingModel
 			//gets the currentOrder's list and gets the equivalent item from the list and increases its count by 1
 			int itemIndex = currentOrder.findItem(item);
 			currentOrder.getOrderList().get(itemIndex).increaseCount();
+			view.createOrderView(currentOrder.getOrderList().get(itemIndex), this);
 		}
-		else 
-		{
-			//gets the currentOrder's list and gets the equivalent item from the list and increases its count by 1
-			int itemIndex = currentOrder.findItem(item);
-			currentOrder.getOrderList().get(itemIndex).increaseCount();
-		}
+		
 	}
 	
 	//method for creating a string record of the current order
@@ -87,15 +87,12 @@ public class OrderingModel
 		LocalDate date = LocalDate.now();
 		record += date;
 		
-		record += "[";
+		record += "[ ";
 		
 		//adds the total number of items to the string
-		record +=  order.getTotalCount();
+		record +=  order.getTotalCount() + " total item(s): ";
 		
-		record += ".";
 		
-		//adds the total price of the order to the string
-		record += "($" + order.getTotalPrice() + ")";
 		
 		//cycles through the objects in the order and adds their count and ID to the order
 		for (int index = 0; index < order.getOrderList().size(); index++) 
@@ -103,66 +100,61 @@ public class OrderingModel
 			if (order.getOrderList().get(index) != null) 
 			{
 				//creates a string which the record shouldn't have multiple copies of and assigns it to stringCheck
-				String stringCheck = order.getOrderList().get(index).getCount() + "." + order.getOrderList().get(index).getID();
+				String stringCheck = order.getOrderList().get(index).getCount() + "x " + order.getOrderList().get(index).getItemName() + ", ";
 				
 				//only adds the count and ID if they are not already added
 				if (record.contains(stringCheck) == false) 
 				{
-					record += ".";
 					record += order.getOrderList().get(index).getCount();
-					record += ".";
-					record += order.getOrderList().get(index).getID();
+					record += "x ";
+					record += order.getOrderList().get(index).getItemName();
+					record += ", ";
 				}
 			}
 		}
 		record += "]";
+		
+		//adds the total price of the order to the string
+		record += "$" + order.getTotalPrice();
+		
 		return record + "\n";
 	}
 	
-	//to-do
-//	//replaces the current order with the last order in the dataset
-//	public Order retreiveLastOrder() 
-//	{
-//		Scanner reader = null;
-//		try 
-//		{
-//			String lastOrder = null;
-//			File file = new File("DataSet.txt");
-//			reader = new Scanner(file);
-//			while (reader.hasNext()) 
-//			{
-//				lastOrder = reader.nextLine();
-//			}
-//			LocalDate date = LocalDate.now();
-//			String dateString = "" + date;
-//		
-//			
-//			int uniqueItemCount = Integer.parseInt(lastOrder.substring(lastOrder.indexOf("[") + 1, lastOrder.indexOf(".")));
-//			for (int count = uniqueItemCount; count > 0; count--) 
-//			{
-//				
-//			}
-//			
-//			
-//			System.out.println(lastOrder.substring(lastOrder.indexOf("[") + 1, lastOrder.indexOf(".")));
-//			Order order = new Order();
-//			return order;
-//		}
-//		catch (FileNotFoundException e)
-//		{
-//			e.printStackTrace();
-//			Order order = new Order();
-//			return order;
-//		}
-//		
-//		finally
-//		{
-//			if (reader != null) 
-//			{
-//				reader.close();
-//			}
-//		}
+	
+	//prints the last orders information out for the user to see
+	public void retreiveLastOrder() 
+	{
+		Scanner reader = null;
+		try 
+		{
+			String lastOrder = null;
+			File file = new File("DataSet.txt");
+			reader = new Scanner(file);
+			while (reader.hasNext()) 
+			{
+				lastOrder = reader.nextLine();
+			}
+			LocalDate date = LocalDate.now();
+			
+			String pastOrderString = "The last person ordered ";
 		
-//	}
+			pastOrderString += lastOrder.substring(lastOrder.indexOf("[") + 1, lastOrder.indexOf("]") - 2) + " for the price of " + lastOrder.substring(lastOrder.indexOf("$"));
+			
+			JOptionPane.showMessageDialog(null, pastOrderString);
+		}
+		catch (FileNotFoundException e)
+		{
+			JOptionPane.showMessageDialog(null, "File not found.");
+		}
+		
+		finally
+		{
+			if (reader != null) 
+			{
+				reader.close();
+			}
+		}
+		
+	}
 	
 }

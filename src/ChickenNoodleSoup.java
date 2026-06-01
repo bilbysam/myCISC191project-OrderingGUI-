@@ -15,24 +15,24 @@
 *
 * <<Add more references here>>
 *
-* Version: 2026-04-28
+* Version: 2026-05-31
 */
 
-//HotChocolate is-a Beverage
-public class HotChocolate extends Beverage
+//Chicken Noodle Soup is-a soup
+public class ChickenNoodleSoup extends Soup
 {
-	//Hot Chocolate has-a price
-	private double price = 1.99;
+	//Chicken Noodle Soup has-a price
+	private double price = 4.99;
 		
-	//Hot Chocolate has-a Identification Number
-	private String ID = "08";
+	//Chicken Noodle Soup has-a Identification Number
+	private String ID = "02";
 		
-	//Hot Chocolate has-a name
-	private String name = "Hot Chocolate";
+	//Tomato Soup has-a name
+	private String name = "Chicken Noodle Soup";
 		
-	//Hot Chocolate has-a number count representing the amount of it being ordered
+	//Chicken Noodle Soup has-a number count representing the amount of it being ordered
 	private int count = 0;
-	
+		
 	//returns the objects price
 	@Override
 	public double getPrice()
@@ -49,7 +49,7 @@ public class HotChocolate extends Beverage
 		
 	//returns the objects name
 	@Override
-		public String getItemName()
+	public String getItemName()
 	{
 		return this.name;
 	}
@@ -78,8 +78,7 @@ public class HotChocolate extends Beverage
 	@Override
 	public void resetCount()
 	{
-		this.count = 0;
-		
+		this.count = 0;	
 	}
 
 }

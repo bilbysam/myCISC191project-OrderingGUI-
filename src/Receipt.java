@@ -81,7 +81,7 @@ public class Receipt
 			{
 				receiptString += array[0][index] + array[1][index] + "\n";
 			}
-			writer.print(receiptString);
+			writer.print(receiptString + "Total price: " + order.getTotalPrice() + "$");
 		}
 		catch (FileNotFoundException e)
 		{
