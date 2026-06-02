@@ -16,7 +16,7 @@
 */
 
 //Potato Soup is-a soup
-public class PotatoSoup extends Soup
+public class PotatoSoup extends MenuItem
 {
 	//Potato Soup has-a price
 	private double price = 5.99;

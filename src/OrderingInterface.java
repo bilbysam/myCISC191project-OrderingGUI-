@@ -46,10 +46,10 @@ import javax.swing.JTextArea;
  */
 public class OrderingInterface extends JFrame
 {
-	
+	//an orderingInterface has a innerOrderPanel to place widgets in when buttons are pressed
 	private JPanel innerOrderPanel;
 	
-	
+	//an orderingInterface has a gridPosition to keep track of where to put widgets
 	private static int gridPosition = 0;
 	
 	
@@ -118,7 +118,7 @@ public class OrderingInterface extends JFrame
 		MysterySoup mysterySoup = new MysterySoup();
 		
 		//sets up buttons for all of the soups
-		Soup[] soups = {tomatoSoup, chickenNoodleSoup, creamSoup, potatoSoup, lentilSoup, mushroomSoup, mysterySoup};
+		MenuItem[] soups = {tomatoSoup, chickenNoodleSoup, creamSoup, potatoSoup, lentilSoup, mushroomSoup, mysterySoup};
 		
 		for (int index = 0; index < soups.length; index++) 
 		{
@@ -141,7 +141,7 @@ public class OrderingInterface extends JFrame
 		PeppermintTea peppermintTea = new PeppermintTea();
 		BlackCoffee blackCoffee = new BlackCoffee();
 		
-		Beverage[] beverages = {hotChocolate, icedTea, greenTea, peppermintTea, blackCoffee};
+		MenuItem[] beverages = {hotChocolate, icedTea, greenTea, peppermintTea, blackCoffee};
 		
 		for (int index = 0; index < beverages.length; index++) 
 		{

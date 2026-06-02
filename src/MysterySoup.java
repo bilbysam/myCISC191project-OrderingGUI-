@@ -16,7 +16,7 @@
 */
 
 //Mystery Soup is-a soup
-public class MysterySoup extends Soup
+public class MysterySoup extends MenuItem
 {
 	//Mystery Soup has-a price
 	private double price = 7.99;

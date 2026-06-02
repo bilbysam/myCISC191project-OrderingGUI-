@@ -16,7 +16,7 @@
 */
 
 //HotChocolate is-a Beverage
-public class HotChocolate extends Beverage
+public class HotChocolate extends MenuItem
 {
 	//Hot Chocolate has-a price
 	private double price = 1.99;

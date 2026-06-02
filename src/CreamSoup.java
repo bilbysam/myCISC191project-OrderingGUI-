@@ -16,7 +16,7 @@
 */
 
 //Cream Soup is-a soup
-public class CreamSoup extends Soup
+public class CreamSoup extends MenuItem
 {
 	//Cream Soup has-a price
 	private double price = 3.99;

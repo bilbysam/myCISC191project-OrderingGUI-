@@ -17,7 +17,7 @@
 
 
 //Green Tea is-a Beverage
-public class GreenTea extends Beverage
+public class GreenTea extends MenuItem
 {
 	//Green Tea has-a price
 	private double price = 1.99;

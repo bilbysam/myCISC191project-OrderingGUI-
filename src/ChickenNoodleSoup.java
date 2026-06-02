@@ -16,7 +16,7 @@
 */
 
 //Chicken Noodle Soup is-a soup
-public class ChickenNoodleSoup extends Soup
+public class ChickenNoodleSoup extends MenuItem
 {
 	//Chicken Noodle Soup has-a price
 	private double price = 4.99;

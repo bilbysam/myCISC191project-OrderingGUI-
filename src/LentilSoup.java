@@ -16,7 +16,7 @@
 */
 
 //Lentil Soup is-a soup
-public class LentilSoup extends Soup
+public class LentilSoup extends MenuItem
 {
 	//Lentil Soup has-a price
 	private double price = 2.99;

@@ -16,7 +16,7 @@
 */
 
 //Black Coffee is-a Beverage
-public class BlackCoffee extends Beverage
+public class BlackCoffee extends MenuItem
 {
 	//Black Coffee has-a price
 	private double price = 2.99;

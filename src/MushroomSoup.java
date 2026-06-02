@@ -16,7 +16,7 @@
 */
 
 //Mushroom Soup is-a soup
-public class MushroomSoup extends Soup
+public class MushroomSoup extends MenuItem
 {
 	//Mushroom Soup has-a price
 	private double price = 5.99;

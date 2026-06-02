@@ -16,7 +16,7 @@
 */
 
 //Peppermint Tea is-a Beverage
-public class PeppermintTea extends Beverage
+public class PeppermintTea extends MenuItem
 {
 	//Peppermint Tea has-a price
 	private double price = 1.99;
