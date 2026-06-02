@@ -24,10 +24,8 @@
 * Version: 2026-06-01
 */
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
@@ -39,7 +37,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 
 /**
  * OrderingInterface is-a JFrame and acts as the View of the GUI
@@ -68,10 +65,9 @@ public class OrderingInterface extends JFrame
 		//sets size of the panel to greater than the window frame
 		itemMenuPanel.setPreferredSize(new Dimension(500,1000));
 		
-		//controls row and column order in regard to other components
+		//controls row and column order in regard to other components and spaces panels out
 		baseConstraints.gridx = 0;
 		baseConstraints.gridy = 0;
-		//fills or extends space of component
 		baseConstraints.weightx = 0.2;
 		baseConstraints.weighty = 0.1;
 		baseConstraints.fill = GridBagConstraints.BOTH;
@@ -86,7 +82,6 @@ public class OrderingInterface extends JFrame
 		//sets the size of the panel to fit the rest of the frame
 		orderPanel.setPreferredSize(new Dimension(400, 1000));
 		
-		//color for helping visualize space taken up
 		orderPanel.setBackground(Color.LIGHT_GRAY);
 		
 		//sets this as the next panel after the one at the last gridx 
