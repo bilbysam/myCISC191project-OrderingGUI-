@@ -12,23 +12,17 @@
 *
 * <<Add more references here>>
 *
-* Version: 2026-04-01
+* Version: 2026-06-01
 */
 
 /**
- * Purpose: The reponsibility of Soup is ...
- *
- * Soup is-a ...
- * Soup is ...
+ * Soup is-a MenuItem
  */
 public abstract class Soup extends MenuItem
 {
 
 	@Override
 	abstract public double getPrice();
-
-	@Override
-	abstract public String getID();
 	
 	@Override
 	abstract public int getCount();

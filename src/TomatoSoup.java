@@ -1,8 +1,5 @@
 /**
-* Lead Author(s):
-* @author samwi; student ID
-* @author Full name; student ID
-* <<Add additional lead authors here>>
+* Lead Author(s): Samuel Bilby
 *
 * Other Contributors:
 * Full name; student ID or contact information if not in class
@@ -15,7 +12,7 @@
 *
 * <<Add more references here>>
 *
-* Version: 2026-04-28
+* Version: 2026-06-01
 */
 
 //TomatoSoup is-a Soup
@@ -23,9 +20,6 @@ public class TomatoSoup extends Soup
 {
 	//Tomato Soup has-a price
 	private double price = 4.99;
-	
-	//Tomato Soup has-a Identification Number
-	private String ID = "01";
 	
 	//Tomato Soup has-a name
 	private String name = "Tomato Soup";
@@ -40,13 +34,6 @@ public class TomatoSoup extends Soup
 		return this.price;
 	}
 
-	//returns the objects ID
-	@Override
-	public String getID()
-	{
-		return this.ID;
-	}
-	
 	//returns the objects name
 	@Override
 	public String getItemName()
@@ -77,6 +64,7 @@ public class TomatoSoup extends Soup
 
 	}
 
+	//sets the objects count to 0
 	@Override
 	public void resetCount()
 	{

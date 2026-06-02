@@ -1,8 +1,5 @@
 /**
-* Lead Author(s):
-* @author samwi; student ID
-* @author Full name; student ID
-* <<Add additional lead authors here>>
+* Lead Author(s): Samuel Bilby
 *
 * Other Contributors:
 * Full name; student ID or contact information if not in class
@@ -15,7 +12,7 @@
 *
 * <<Add more references here>>
 *
-* Version: 2026-05-31
+* Version: 2026-06-01
 */
 
 //Black Coffee is-a Beverage
@@ -23,10 +20,7 @@ public class BlackCoffee extends Beverage
 {
 	//Black Coffee has-a price
 	private double price = 2.99;
-		
-	//Black Coffee has-a Identification Number
-	private String ID = "12";
-		
+
 	//Black Coffee has-a name
 	private String name = "Black Coffee";
 		
@@ -40,13 +34,6 @@ public class BlackCoffee extends Beverage
 		return this.price;
 	}
 
-	//returns the objects ID
-	@Override
-	public String getID()
-	{
-		return this.ID;
-	}
-		
 	//returns the objects name
 	@Override
 		public String getItemName()
@@ -75,6 +62,7 @@ public class BlackCoffee extends Beverage
 		this.count--;
 	}
 
+	//sets the objects count to 0
 	@Override
 	public void resetCount()
 	{

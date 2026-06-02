@@ -8,21 +8,10 @@
 
 public abstract class MenuItem
 {
-	//a menu item has-a price
-	private double price;
-	
-	//a menu item has-a identification number
-	private int identificationNumber;
-	
-	//a menu item has-a count for how many items were requested
-	private int count = 0;
-	
 	//returns the price of the object
 	public abstract double getPrice();
 	
-	//returns a integer signifying the specific items ID
-	abstract public String getID();
-	
+	//returns the name of the object
 	abstract public String getItemName();
 	
 	//returns a integer for the number of items requested in the order
@@ -36,10 +25,5 @@ public abstract class MenuItem
 	
 	//decreases the count variable by 1
 	abstract public void decreaseCount();
-	
-
-	//maybe have every item stored in a item list with itemlists attached like in the node project so that it can print buttons with values attached automatically
-	//for index in this.getSoups() spawn soup button that interacts with soup
-	
 	
 }

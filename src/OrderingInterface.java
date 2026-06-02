@@ -17,11 +17,11 @@
 * ^control amount of columns by setting rows to 0
 * https://docs.oracle.com/javase/8/docs/api/javax/swing/border/EmptyBorder.html
 * ^is used for creating space around a panel 
-*https://stackoverflow.com/questions/70186275/java-adding-and-removing-buttons-during-runtime
-*^source for using revalidate and repaint
+* https://stackoverflow.com/questions/70186275/java-adding-and-removing-buttons-during-runtime
+* ^source for using revalidate and repaint
 *
 *
-* Version: 2026-04-01
+* Version: 2026-06-01
 */
 
 import java.awt.BorderLayout;
@@ -38,38 +38,23 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-import javax.swing.border.Border;
 
 /**
  * OrderingInterface is-a JFrame and acts as the View of the GUI
  */
-
-//try setting up flowLayouts in flow layouts and make sure that dimensions are attached to a variable that can change if the screen is adjusted?
-//to get correct button visuals maybe overlap an invisible button on a panel?
-
 public class OrderingInterface extends JFrame
 {
-
-	private JButton addButton;
-	
-	private JButton removeButton;
 	
 	private JPanel innerOrderPanel;
 	
-	private JLabel itemLabel;
-	
-	private JLabel itemCount;
 	
 	private static int gridPosition = 0;
 	
 	
 	public OrderingInterface(OrderingModel model) 
-	{
-		
-		
+	{	
 		//sets the layout to organize the panels to sides	
 		this.setLayout(new GridBagLayout());
 		GridBagConstraints baseConstraints = new GridBagConstraints();
@@ -83,7 +68,6 @@ public class OrderingInterface extends JFrame
 		//sets size of the panel to greater than the window frame
 		itemMenuPanel.setPreferredSize(new Dimension(500,1000));
 		
-		itemMenuPanel.setBackground(Color.green);
 		//controls row and column order in regard to other components
 		baseConstraints.gridx = 0;
 		baseConstraints.gridy = 0;
@@ -96,13 +80,11 @@ public class OrderingInterface extends JFrame
 		//sets a gridlayout for button prioritizing filling columns to the required amount rather than rows
 		itemMenuPanel.setLayout(new GridLayout(2, 1));
 		
-		
-		
 		//creates panel list of items currently being ordered
 		JPanel orderPanel = new JPanel();
 		
 		//sets the size of the panel to fit the rest of the frame
-		orderPanel.setPreferredSize(new Dimension(400, 250));
+		orderPanel.setPreferredSize(new Dimension(400, 1000));
 		
 		//color for helping visualize space taken up
 		orderPanel.setBackground(Color.LIGHT_GRAY);
@@ -113,18 +95,11 @@ public class OrderingInterface extends JFrame
 		baseConstraints.gridheight = 10;
 		baseConstraints.gridwidth = 10;
 		
-		//look up exactly what weight does
 		//controls the size of the panel space in the base GridBagLayout
 		baseConstraints.weightx = 0.05;
 		baseConstraints.weighty = 0.1;
 		baseConstraints.fill = GridBagConstraints.BOTH;
 		this.add(orderPanel, baseConstraints);
-		
-		
-		
-//		//soups section label
-//		JLabel soupsLabel = new JLabel("Soups:");
-//		itemMenuPanel.add(soupsLabel);
 		
 		//soup button section
 		JPanel foodMenuPanel = new JPanel();
@@ -152,10 +127,6 @@ public class OrderingInterface extends JFrame
 			foodMenuPanel.add(button);	
 		}
 		
-//		//drinks section Label
-//		JLabel beveragesLabel = new JLabel("Beverages");
-//		itemMenuPanel.add(beveragesLabel);
-		
 		//beverage button section
 		JPanel beverageMenuPanel = new JPanel();
 		beverageMenuPanel.setLayout(new GridLayout(0, 4, 30, 10));
@@ -180,7 +151,6 @@ public class OrderingInterface extends JFrame
 		}
 		
 		
-//		
 		//sets up layout for orderPanel with GridBagLayout
 		orderPanel.setLayout(new GridBagLayout());
 		GridBagConstraints panelConstraints = new GridBagConstraints();
@@ -203,23 +173,33 @@ public class OrderingInterface extends JFrame
 		
 		panelConstraints.gridy = 2;
 		
-		JLabel extraInformationLabel = new JLabel("Add any specifications here");
+		JLabel extraInformationLabel = new JLabel("Press submit to finish ordering");
 		extraInformationLabel.setForeground(Color.BLACK);
 		orderPanel.add(extraInformationLabel, panelConstraints);
 		
 		panelConstraints.gridy = 3;
-		
-		JTextArea extraInformationArea = new JTextArea();
-		extraInformationArea.setPreferredSize(new Dimension(300, 100));
-		orderPanel.add(extraInformationArea, panelConstraints);
+	
 		
 		panelConstraints.gridy = 4;
 		
 		JButton submitButton = new JButton("Submit");
-		//testing actionListener
 		submitButton.addActionListener(new SubmitOrderButtonListener(model, this));
+		JButton retrieveButton = new JButton("Retrieve Order");
+		retrieveButton.addActionListener(new RetrieveOrderListener(model));
+		JPanel submitAndRetrievePanel = new JPanel();
+		GridBagLayout buttonLayout = new GridBagLayout();
+		submitAndRetrievePanel.setLayout(buttonLayout);
+		GridBagConstraints buttonConstraints = new GridBagConstraints();
 		
-		orderPanel.add(submitButton, panelConstraints);
+		buttonConstraints.gridx = 0;
+		buttonConstraints.gridy = 0;
+
+		submitAndRetrievePanel.add(submitButton, buttonConstraints);
+		
+		buttonConstraints.gridx = 1;
+		
+		submitAndRetrievePanel.add(retrieveButton, buttonConstraints);
+		orderPanel.add(submitAndRetrievePanel, panelConstraints);
 		
 		//sets the frame size
 		this.setSize(1050, 750);
@@ -242,7 +222,7 @@ public class OrderingInterface extends JFrame
 		JOptionPane.showMessageDialog(null, "Our Apologies. There seems to have been a file error. Please inform staff.");
 	}
 	
-	//
+	//if the given items count is 1 creates a button for increasing the count, a button for decreasing the count, a label showing the item name, and a label showing the count with the price of that number of items
 	public void createOrderView(MenuItem item, OrderingModel model) 
 	{
 		if (item.getCount() == 1) 
@@ -265,7 +245,7 @@ public class OrderingInterface extends JFrame
 			
 			removeButton.addActionListener(new DecreaseCountListener(itemCount, item));
 			addButton.addActionListener(new MenuItemButtonListener(item, model, this));
-			addButton.addActionListener(new IncreaseCountUpdateListener(itemCount, item));
+			addButton.addActionListener(new IncreaseCountListener(itemCount, item));
 		
 			newItemPanel.add(addButton);
 			newItemPanel.add(removeButton);
@@ -280,13 +260,13 @@ public class OrderingInterface extends JFrame
 	
 	//removes the buttons that aren't in use anymore
 	public void removeComponents()
-		{
-			innerOrderPanel.removeAll();
+	{
+		innerOrderPanel.removeAll();
+		
+		//updates the frame to have the new buttons
+		this.revalidate();
+		this.repaint();
 			
-			//updates the frame to have the new buttons
-			this.revalidate();
-			this.repaint();
-			
-		}
+	}
 	
 }

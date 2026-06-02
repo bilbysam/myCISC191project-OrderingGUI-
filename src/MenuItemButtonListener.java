@@ -1,8 +1,5 @@
 /**
-* Lead Author(s):
-* @author samwi; student ID
-* @author Full name; student ID
-* <<Add additional lead authors here>>
+* Lead Author(s): Samuel Bilby
 *
 * Other Contributors:
 * Full name; student ID or contact information if not in class
@@ -15,7 +12,7 @@
 *
 * <<Add more references here>>
 *
-* Version: 2026-04-28
+* Version: 2026-06-01
 */
 
 import java.awt.event.ActionEvent;
@@ -47,9 +44,6 @@ public class MenuItemButtonListener implements ActionListener
 	public void actionPerformed(ActionEvent e)
 	{
 		model.itemOrdered(item, view);
-		
-		
-		//do an update in the UI if it hasn't already to add a panel with buttons and a label with info on the count and item
 		
 	}
 

@@ -1,8 +1,5 @@
 /**
-* Lead Author(s):
-* @author samwi; student ID
-* @author Full name; student ID
-* <<Add additional lead authors here>>
+* Lead Author(s): Samuel Bilby
 *
 * Other Contributors:
 * Full name; student ID or contact information if not in class
@@ -15,7 +12,7 @@
 *
 * <<Add more references here>>
 *
-* Version: 2026-05-31
+* Version: 2026-06-01
 */
 
 //Mystery Soup is-a soup
@@ -23,9 +20,6 @@ public class MysterySoup extends Soup
 {
 	//Mystery Soup has-a price
 	private double price = 7.99;
-	
-	//Mystery Soup has-a Identification Number
-	private String ID = "07";
 	
 	//Mystery Soup has-a name
 	private String name = "Mystery Soup";
@@ -38,13 +32,6 @@ public class MysterySoup extends Soup
 	public double getPrice()
 	{
 		return this.price;
-	}
-
-	//returns the objects ID
-	@Override
-	public String getID()
-	{
-		return this.ID;
 	}
 	
 	//returns the objects name
@@ -66,7 +53,6 @@ public class MysterySoup extends Soup
 	public void increaseCount()
 	{
 		this.count++;
-
 	}
 
 	//decreases the objects count by 1
@@ -74,16 +60,14 @@ public class MysterySoup extends Soup
 	public void decreaseCount()
 	{
 		this.count--;
-
 	}
 
+	//sets the objects count to 0
 	@Override
 	public void resetCount()
 	{
 		this.count = 0;
-		
 	}
-
 	
 
 }

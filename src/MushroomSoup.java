@@ -1,8 +1,5 @@
 /**
-* Lead Author(s):
-* @author samwi; student ID
-* @author Full name; student ID
-* <<Add additional lead authors here>>
+* Lead Author(s): Samuel Bilby
 *
 * Other Contributors:
 * Full name; student ID or contact information if not in class
@@ -15,7 +12,7 @@
 *
 * <<Add more references here>>
 *
-* Version: 2026-05-31
+* Version: 2026-06-01
 */
 
 //Mushroom Soup is-a soup
@@ -23,9 +20,6 @@ public class MushroomSoup extends Soup
 {
 	//Mushroom Soup has-a price
 	private double price = 5.99;
-	
-	//Mushroom Soup has-a Identification Number
-	private String ID = "06";
 	
 	//Mushroom Soup has-a name
 	private String name = "Mushroom Soup";
@@ -38,13 +32,6 @@ public class MushroomSoup extends Soup
 	public double getPrice()
 	{
 		return this.price;
-	}
-
-	//returns the objects ID
-	@Override
-	public String getID()
-	{
-		return this.ID;
 	}
 	
 	//returns the objects name
@@ -77,6 +64,7 @@ public class MushroomSoup extends Soup
 
 	}
 
+	//sets the objects count to 0
 	@Override
 	public void resetCount()
 	{

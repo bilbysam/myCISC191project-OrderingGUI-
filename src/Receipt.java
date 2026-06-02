@@ -12,7 +12,7 @@
 *
 * <<Add more references here>>
 *
-* Version: 2026-04-01
+* Version: 2026-06-01
 */
 
 import java.io.File;
@@ -30,19 +30,11 @@ public class Receipt
 	//a receipt has-a view that informs the user that an error has occurred
 	private OrderingInterface view;
 	
-	//constructor which
+	//constructor which initializes the 
 	public Receipt(Order orderInstance, OrderingInterface orderingInterface) 
 	{
 		this.order = orderInstance;
-		
 		this.view = orderingInterface;
-		
-	}
-	
-	//returns a string giving all of the information necessary the receipt
-	public String toString() 
-	{
-		return "";
 	}
 	
 	//creates an array from the order
@@ -56,12 +48,12 @@ public class Receipt
 			orderArray[0][index] = order.getOrderList().get(index).getItemName();
 			orderArray[1][index] = "" + order.getOrderList().get(index).getCount();
 			
+			//makes sure the counts are all in the same location in the receipt
 			while (orderArray[0][index].length() < 30) 
 			{
 				orderArray[0][index] += " ";
 			}
 		}
-		
 		return orderArray;
 	}
 	
@@ -94,10 +86,6 @@ public class Receipt
 				writer.close();
 			}
 		}
-		
 	}
-	
-	//maybe add an announcement for the exception
-	
 	
 }

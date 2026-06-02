@@ -16,7 +16,7 @@
 *https://phoenixnap.com/kb/string-to-integer-java
 *^string to integer, parse int method
 *
-* Version: 2026-04-01
+* Version: 2026-06-01
 */
 
 /**
@@ -27,6 +27,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import javax.swing.JOptionPane;
@@ -44,6 +45,7 @@ public class OrderingModel
 		return this.currentOrder;
 	}
 	
+	//initializes the model and creates an empty order to be set as the instance variable currentOrder
 	public OrderingModel() 
 	{
 		Order firstOrder = new Order();
@@ -65,17 +67,17 @@ public class OrderingModel
 	//method used when the buttons used for ordering items are clicked to add the item to the order or increase its count
 	public void itemOrdered(MenuItem item, OrderingInterface view) 
 	{
-		//if the item isn't in the order list then adds the item to the list
-		if (this.currentOrder.findItem(item) == -1) 
+		ArrayList<MenuItem> orderItemList = currentOrder.getOrderList();
+		
+		if (orderItemList.contains(item) == false) 
 		{
 			currentOrder.getOrderList().add(item);
 			
 			//gets the currentOrder's list and gets the equivalent item from the list and increases its count by 1
-			int itemIndex = currentOrder.findItem(item);
+			int itemIndex = orderItemList.indexOf(item);
 			currentOrder.getOrderList().get(itemIndex).increaseCount();
 			view.createOrderView(currentOrder.getOrderList().get(itemIndex), this);
-		}
-		
+		}	
 	}
 	
 	//method for creating a string record of the current order
@@ -91,7 +93,6 @@ public class OrderingModel
 		
 		//adds the total number of items to the string
 		record +=  order.getTotalCount() + " total item(s): ";
-		
 		
 		
 		//cycles through the objects in the order and adds their count and ID to the order

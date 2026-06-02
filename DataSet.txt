@@ -1,156 +1,18 @@
-2026-05-13.3.1.01
+2026-06-01[ 0 total item(s): ]$0.0
 
-2026-05-13.2.2.01
+2026-06-01[ 3 total item(s): 2x Potato Soup, 1x Iced Tea, ]$14.47
 
-2026-05-13.5.1.01
+2026-06-01[ 4 total item(s): 3x Peppermint Tea, 1x Mystery Soup, ]$13.96
 
-2026-05-13.3.1.01
+2026-06-01[ 2 total item(s): 2x Mystery Soup, 0x Potato Soup, ]$15.98
 
-2026-05-16.2.9.98.1.01
+2026-06-01[ 4 total item(s): 1x Chicken Noodle Soup, 1x Cream Soup, 1x Mystery Soup, 1x Potato Soup, ]$22.96
 
-2026-05-16.$3.14.97.1.01
+2026-06-01[ 3 total item(s): 2x Potato Soup, 1x Peppermint Tea, ]$13.97
 
-2026-05-16.3.$14.97.1.01
+2026-06-01[ 4 total item(s): 1x Peppermint Tea, 1x Mystery Soup, 1x Cream Soup, 1x Potato Soup, ]$19.96
 
-2026-05-21.3.$14.97.1.01
+2026-06-01[ 3 total item(s): 2x Mystery Soup, 1x Potato Soup, ]$21.97
 
-2026-05-21.3.$14.97.1.01
-
-2026-05-21.3.$14.97.3.01
-
-2026-05-21.1.$4.99.1.01
-
-2026-05-21.1.$4.99.1.01
-
-2026-05-21.0.$0.0
-
-2026-05-21.1.$4.99.1.01
-
-2026-05-21.1.$4.99.1.01
-
-2026-05-21.1.$4.99.1.01
-
-2026-05-21.1.$4.99.1.01
-
-2026-05-21.1.$4.99.1.01
-
-2026-05-21.1.$4.99.1.01
-
-2026-05-21.1.$4.99.1.01
-
-2026-05-21.1.$4.99.1.01
-
-2026-05-21.1.$4.99.1.01
-
-2026-05-21[2.$9.98.2.01]
-
-2026-05-21[1.($4.99).1.01]
-
-2026-05-21[1.($4.99).1.01]
-
-2026-05-21[1.($4.99).1.01]
-
-2026-05-21[0.($0.0)]
-
-2026-05-21[3.($14.97).2.01.1.01]
-
-2026-05-21[2.($9.98).1.01]
-
-2026-05-21[3.($11.97).1.01.1.09]
-
-2026-05-21[5.($18.95).1.01.2.01.1.09]
-
-2026-05-28[2.($6.98).1.01.1.09]
-
-2026-05-30[2.($6.98).1.01.1.09]
-
-2026-05-31[7.($34.93).7.01]
-
-2026-05-31[37.($184.63).37.01]
-
-2026-05-31[4.($22.46).1.07.2.04.1.09]
-
-2026-05-31[4.($27.96).2.04.2.07]
-
-2026-05-31[2.($13.98).1.07.1.04]
-
-2026-05-31[3.($11.97).3.03]
-
-2026-05-31[2.($8.48).1.06.1.09]
-
-2026-05-31[12.($48.38000000000002).1.01.1.02.1.03.1.04.1.05.1.06.1.07.1.08.1.09.1.10.1.11.1.12]
-
-2026-05-31[5.($19.950000000000003).3.10.1.07.1.06]
-
-2026-05-31[1.($4.99).1.02]
-
-2026-05-31[1.($7.99).1.07]
-
-2026-05-31[1.($7.99).1.07]
-
-2026-05-31[5.($45.42000000000001).4.07.1.03.1.02.1.09.1.10]
-
-2026-05-31[3.1.07.1.11.1.09]($12.47)
-
-2026-05-31[1.1.07]($7.99)
-
-2026-05-31[2.2.07.1.03]($19.97)
-
-2026-05-31[2.3.04.1.06]($23.96)
-
-2026-05-31[2, 1x Mystery Soup, 1x Mushroom Soup]($13.98)
-
-2026-05-31[11x Mystery Soup, ]($7.99)
-
-2026-05-31[1.1.03]($3.99)
-
-2026-05-31[11x Potato Soup, ]($5.99)
-
-2026-05-31[11x Mystery Soup, ]($7.99)
-
-2026-05-31[ 11x Mystery Soup, ]($7.99)
-
-2026-05-31[ 1items: 1x Mystery Soup, ]($7.99)
-
-2026-05-31[ 3 total item(s): 1x Peppermint Tea, 2x Green Tea, ]($5.97)
-
-2026-05-31[ 1 total item(s): 1x Mystery Soup, ]($7.99)
-
-2026-05-31[ 3 total item(s): 1x Mystery Soup, 1x Mushroom Soup, 1x Cream Soup, ]($17.97)
-
-2026-05-31[ 3 total item(s): 1x Mystery Soup, 1x Chicken Noodle Soup, 1x Mushroom Soup, ]($18.97)
-
-2026-05-31[ 1 total item(s): 1x Mystery Soup, ]($7.99)
-
-2026-05-31[ 1 total item(s): 1x Mystery Soup, ]($7.99)
-
-2026-05-31[ 1 total item(s): 1x Mystery Soup, ]($7.99)
-
-2026-05-31[ 1 total item(s): 1x Mystery Soup, ]($7.99)
-
-2026-05-31[ 1 total item(s): 1x Mystery Soup, ]($7.99)
-
-2026-05-31[ 3 total item(s): 1x Mystery Soup, 1x Peppermint Tea, 1x Green Tea, ]($11.97)
-
-2026-05-31[ 0 total item(s): ]($0.0)
-
-2026-05-31[ 0 total item(s): ]($0.0)
-
-2026-05-31[ 1 total item(s): 1x Peppermint Tea, ]($1.99)
-
-2026-05-31[ 0 total item(s): ]($0.0)
-
-2026-05-31[ 2 total item(s): 1x Peppermint Tea, 1x Green Tea, ]($3.98)
-
-2026-05-31[ 0 total item(s): ]($0.0)
-
-2026-05-31[ 3 total item(s): 1x Peppermint Tea, 1x Green Tea, 1x Mystery Soup, ]($11.97)
-
-2026-05-31[ 1 total item(s): 1x Peppermint Tea, ]($1.99)
-
-2026-05-31[ 1 total item(s): 1x Mystery Soup, ]$7.99
-
-2026-05-31[ 4 total item(s): 1x Mystery Soup, 2x Mushroom Soup, 1x Green Tea, ]$21.959999999999997
-
-2026-05-31[ 12 total item(s): 1x Tomato Soup, 1x Chicken Noodle Soup, 1x Cream Soup, 1x Potato Soup, 1x Mystery Soup, 1x Mushroom Soup, 1x Lentil Soup, 1x Hot Chocolate, 1x Iced Tea, 1x Green Tea, 1x Peppermint Tea, 1x Black Coffee, ]$48.38000000000002
+2026-06-01[ 5 total item(s): 1x Mystery Soup, 4x Cream Soup, ]$23.950000000000003
 

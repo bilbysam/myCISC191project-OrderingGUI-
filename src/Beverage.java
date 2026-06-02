@@ -12,38 +12,16 @@
 *
 * <<Add more references here>>
 *
-* Version: 2026-04-01
+* Version: 2026-06-01
 */
 
 /**
- * Purpose: The reponsibility of Beverage is ...
- *
- * Beverage is-a ...
- * Beverage is ...
+ * Beverage is-a MenuItem 
  */
 public abstract class Beverage extends MenuItem
 {
 
-	@Override
-	abstract public double getPrice();
-
-	@Override
-	abstract public String getID();
 	
-	@Override
-	abstract public int getCount();
-	
-	@Override
-	abstract public void increaseCount();	
-
-	@Override
-	abstract public void decreaseCount();
-	
-	@Override
-	abstract public String getItemName();
-	
-	@Override
-	abstract public void resetCount();
 	
 
 }

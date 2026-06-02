@@ -13,7 +13,7 @@
 *
 * <<Add more references here>>
 *
-* Version: 2026-04-01
+* Version: 2026-06-01
 */
 
 import java.util.ArrayList;
@@ -24,16 +24,14 @@ public class Order
 	//An Order has-many MenuItems
 	private ArrayList<MenuItem> orderItemList = new ArrayList<MenuItem>();
 	
-	private int totalCount = 0;
-	
-	private double totalPrice = 0;
 
-	//constructor 
+	//constructor initializes the object with no parameters so the list is array list of menu items is empty
 	public Order() 
 	{
 		
 	}
 
+	//returns the current array list of menu items
 	public ArrayList<MenuItem> getOrderList()
 	{
 		return this.orderItemList;
@@ -42,43 +40,27 @@ public class Order
 	//returns the combined count values for every item in the order
 	public int getTotalCount()
 	{
+		int totalCount = 0;
+		
 		for (int index = 0; index < orderItemList.size(); index++) 
 		{
-			this.totalCount += orderItemList.get(index).getCount();
+			totalCount += orderItemList.get(index).getCount();
 		}
-		return this.totalCount;
+		return totalCount;
 	}
 	
-	//returns the combined price values for every item in the order
+	//returns an amount equivalent to the combined price values for every item in the order
 	public double getTotalPrice() 
 	{
+		double totalPrice = 0;
+		
 		for (int index = 0; index < orderItemList.size(); index++) 
 		{
-			this.totalPrice += orderItemList.get(index).getPrice() * orderItemList.get(index).getCount();
+			totalPrice += orderItemList.get(index).getPrice() * orderItemList.get(index).getCount();
 		}
-		return this.totalPrice;
+		return totalPrice;
 	}
 	
-	//returns a string with information regarding the items ordered
-	public String toString()
-	{
-		return "";
-		
-	}
 	
-	//if the order has an item in it / find the item in the order and return its location else return -1/ then whatever method called this can modify count or anything else
-	public int findItem(MenuItem item) 
-	{
-
-		if (this.orderItemList.contains(item)) 
-		{
-			return orderItemList.indexOf(item);
-		}
-		else 
-		{
-			//maybe throw a unique exception for item not found
-			return -1;
-		}
-	}
 	
 }
