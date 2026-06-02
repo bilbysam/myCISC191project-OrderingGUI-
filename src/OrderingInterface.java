@@ -19,8 +19,8 @@
 * ^is used for creating space around a panel 
 * https://stackoverflow.com/questions/70186275/java-adding-and-removing-buttons-during-runtime
 * ^source for using revalidate and repaint
-*
-*
+*https://docs.oracle.com/javase/8/javafx/api/javafx/scene/control/ScrollPane.html
+*^scrollpane reference
 * Version: 2026-06-01
 */
 
